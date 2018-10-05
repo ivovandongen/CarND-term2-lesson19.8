@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(TEMPLATE)
+project(lesson19.8)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -49,11 +49,16 @@ add_subdirectory(src)
 
 # Main executable
 
-add_executable(Template
+git_include(matplotlibcpp)
+
+add_executable(MindTheLine
     ${CMAKE_SOURCE_DIR}/src/main.cpp
     )
 
-target_link_libraries(Template core)
+target_link_libraries(MindTheLine
+    core
+    matplotlibcpp
+    )
 
 
 # Tests

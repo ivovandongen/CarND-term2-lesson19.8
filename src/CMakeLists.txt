@@ -1,9 +1,11 @@
 # Submodules
 git_include(Eigen)
 
+find_package(IPOPT 3.12 REQUIRED)
+
 add_library(core STATIC
-    ${CMAKE_SOURCE_DIR}/src/core.hpp
-    ${CMAKE_SOURCE_DIR}/src/core.cpp
+    ${CMAKE_SOURCE_DIR}/src/MPC.hpp
+    ${CMAKE_SOURCE_DIR}/src/MPC.cpp
     )
 
 target_include_directories(core
@@ -12,6 +14,7 @@ target_include_directories(core
 
 target_link_libraries(core PUBLIC
     Eigen
+    IPOPT
     )
 
 if (DO_CLANG_TIDY)

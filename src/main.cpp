@@ -16,19 +16,18 @@ int main() {
     ptsx << -100, 100;
     ptsy << -1, -1;
 
-    // TODO: fit a polynomial to the above x and y coordinates
-//    auto coeffs = ? : ;
-    Eigen::VectorXd coeffs;
+    // Fit a polynomial to the above x and y coordinates
+    Eigen::VectorXd coeffs = polyfit(ptsx, ptsy, 1);
 
     // NOTE: free feel to play around with these
     double x = -1;
     double y = 10;
     double psi = 0;
     double v = 10;
-    // TODO: calculate the cross track error
-    double cte = 42 ;
-    // TODO: calculate the orientation error
-    double epsi = 42 ;
+    // Calculate the cross track error
+    double cte = polyeval(coeffs, x) - y; ;
+    // Calculate the orientation error
+    double epsi = psi - atan(coeffs[1]);
 
     Eigen::VectorXd state(6);
     state << x, y, psi, v, cte, epsi;

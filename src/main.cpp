@@ -1,5 +1,6 @@
 #include <MPC.hpp>
 
+#include <polyline.hpp>
 #include <iostream>
 
 #include <matplotlibcpp.h>
